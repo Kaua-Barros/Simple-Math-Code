@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import utils.InputUtils;
 
-public class Tangente {
+public class Tangent {
 
     public static final DecimalFormat formatDouble = new DecimalFormat("#.###");
 
@@ -13,8 +13,8 @@ public class Tangente {
     }
 
     public static double taylorSerieTan(double radians) {
-        double sen = Seno.taylorSerieSen(radians);
-        double cos = Cosseno.taylorSerieCos(radians);
+        double sen = Sen.taylorSerieSen(radians);
+        double cos = Cos.taylorSerieCos(radians);
         return (sen / cos);
     }
 
@@ -38,13 +38,15 @@ public class Tangente {
         double tan = 0;
         double angle = 0;
         while (choice != 5) {
-            choice = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                    + "1) Calcular " + "Tangente" + " através do Ângulo\n"
-                    + "2) Calcular " + "Tangente" + " através dos Lados do triângulo retângulo\n"
-                    + "3) Ver a representação no circulo Trigonometrico\n"
-                    + "4) Ver a representação da f(x) = tan(x)\n"
-                    + "5) Voltar ao Menu principal \n"
-                    + "Digite aqui: ", 5);
+            choice = CalcTrigonometry.MenuFormat("""
+
+                    Digite a opção desejada:\s
+                    1) Calcular Tangente através do Ângulo
+                    2) Calcular Tangente através dos Lados do triângulo retângulo
+                    3) Ver a representação no circulo Trigonometrico
+                    4) Ver a representação da f(x) = tan(x)
+                    5) Voltar ao Menu trigonomêtrico\s
+                    Digite aqui:\s""", 5);
             switch (choice) {
                 case 1:
                     System.out.print("Digite o valor da ângulação(em graus): ");
@@ -79,11 +81,13 @@ public class Tangente {
                     double period = 1;
                     while (choiceTanFunction != 3) {
                         DrawTrigonometricFunctions.drawFunctionTan(interval, period);
-                        choiceTanFunction = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                                + "1) Alterar Intervalo da imagem da função Seno\n"
-                                + "2) Alterar período da função Seno\n"
-                                + "3) Voltar para opções de Seno\n"
-                                + "Digite aqui: ", 3);
+                        choiceTanFunction = CalcTrigonometry.MenuFormat("""
+
+                                Digite a opção desejada:\s
+                                1) Alterar Intervalo da imagem da função Seno
+                                2) Alterar período da função Seno
+                                3) Voltar para opções de Seno
+                                Digite aqui:\s""", 3);
                         switch (choiceTanFunction) {
                             case 1:
                                 System.out.print("\nDigite o valor do multiplicador do intervalo: ");

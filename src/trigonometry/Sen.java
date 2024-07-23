@@ -2,7 +2,7 @@ package trigonometry;
 
 import utils.InputUtils;
 
-public class Seno {
+public class Sen {
 
     public static double taylorSerieSen(double radians) {
         double sen = radians;
@@ -45,13 +45,15 @@ public class Seno {
         double sen = 0;
         double angle = 0;
         while (choice != 5) {
-            choice = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                    + "1) Calcular " + "Seno" + " através do Ângulo\n"
-                    + "2) Calcular " + "Seno" + " através dos Lados do triângulo retângulo\n"
-                    + "3) Ver a representação no circulo Trigonometrico\n"
-                    + "4) Ver a representação da f(x) = sen(x)\n"
-                    + "5) Voltar ao Menu principal \n"
-                    + "Digite aqui: ", 5);
+            choice = CalcTrigonometry.MenuFormat("""
+
+                    Digite a opção desejada:\s
+                    1) Calcular Seno através do Ângulo
+                    2) Calcular Seno através dos Lados do triângulo retângulo
+                    3) Ver a representação no circulo Trigonometrico
+                    4) Ver a representação da f(x) = sen(x)
+                    5) Voltar ao Menu trigonomêtrico\s
+                    Digite aqui:\s""", 5);
             switch (choice) {
                 case 1:
                     System.out.print("Digite o valor da ângulação(em graus): ");
@@ -83,11 +85,13 @@ public class Seno {
                     double period = 1;
                     while (choiceSenFunction != 3) {
                         DrawTrigonometricFunctions.drawFunctionSen(interval, period);
-                        choiceSenFunction = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                                + "1) Alterar Intervalo da imagem da função Seno\n"
-                                + "2) Alterar período da função Seno\n"
-                                + "3) Voltar para opções de Seno\n"
-                                + "Digite aqui: ", 3);
+                        choiceSenFunction = CalcTrigonometry.MenuFormat("""
+                                      
+                                Digite a opção desejada:\s
+                                1) Alterar Intervalo da imagem da função Seno
+                                2) Alterar período da função Seno
+                                3) Voltar para opções de Seno
+                                Digite aqui:\s""", 3);
                         switch (choiceSenFunction) {
                             case 1:
                                 System.out.print("\nDigite o valor do multiplicador do intervalo: ");

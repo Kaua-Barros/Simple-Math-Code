@@ -1,33 +1,35 @@
-import java.util.Scanner;
+package thales;
+
+import utils.InputUtils;
+
 public class TalesTheorem {
 	public static void calcProportion() {
-        Scanner input = new Scanner(System.in);
+
+        System.out.print("Informe o valor de AD: ");
+        double AD = InputUtils.getDoubleInputValue();
         
-        System.out.println("Informe o valor de AD");
-        double AD = input.nextDouble();
+        System.out.print("Informe o valor de DB: ");
+        double DB = InputUtils.getDoubleInputValue();
+
+        System.out.print("Informe o valor de AE: ");
+        double AE = InputUtils.getDoubleInputValue();
         
-        System.out.println("Informe o valor de DB");
-        double DB = input.nextDouble();
-        
-        System.out.println("Informe o valor de AE");
-        double AE = input.nextDouble();
-        
-        System.out.println("Informe o valor de EC");
-        double EC = input.nextDouble();
+        System.out.print("Informe o valor de EC: ");
+        double EC = InputUtils.getDoubleInputValue();
         
         if (DB == 0 || EC == 0) {
-            System.out.println("Os valores de DB e EC não podem ser zero.");
+            System.out.println("Os valores de DB e EC não podem ser iguais a zero.");
         } else {
-            double proporcao1 = AD / DB;
-            double proporcao2 = AE / EC;
+            double proportion1 = AD / DB;
+            double proportion2 = AE / EC;
             
-            if (proporcao1 == proporcao2) {
+            if (proportion1 == proportion2) {
                 System.out.println("Os segmentos são proporcionais.");
-                System.out.println("Proporção calculada: " + proporcao1);
+                System.out.println("Proporção calculada: " + proportion1);
             } else {
                 System.out.println("Os segmentos não são proporcionais.");
-                System.out.println("Proporção de AD/DB: " + proporcao1);
-                System.out.println("Proporção de AE/EC: " + proporcao2);
+                System.out.println("Proporção de AD/DB: " + proportion1);
+                System.out.println("Proporção de AE/EC: " + proportion2);
             }
         }
 	}

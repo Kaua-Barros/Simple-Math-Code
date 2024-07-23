@@ -2,7 +2,7 @@ package trigonometry;
 
 import utils.InputUtils;
 
-public class Cosseno {
+public class Cos {
 
     public static double taylorSerieCos(double radianos) {
         double cos = 1;
@@ -10,7 +10,7 @@ public class Cosseno {
         double pow = 1;
 
         for (int n = 2; n <= CalcTrigonometry.taylorTerms; n += 2) {
-            factorial *= n * (n-1);
+            factorial *= n * (n - 1);
             pow *= radianos * radianos;
 
             double sumNum = pow / factorial;
@@ -45,13 +45,15 @@ public class Cosseno {
         double cos = 0;
         double angle = 0;
         while (choice != 5) {
-            choice = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                    + "1) Calcular " + "Cosseno" + " através do Ângulo\n"
-                    + "2) Calcular " + "Cosseno" + " através dos Lados do triângulo retângulo\n"
-                    + "3) Ver a representação no circulo Trigonometrico\n"
-                    + "4) Ver a representação da f(x) = cos(x)\n"
-                    + "5) Voltar ao Menu principal \n"
-                    + "Digite aqui: ", 5);
+            choice = CalcTrigonometry.MenuFormat("""
+            
+            Digite a opção desejada:
+            1) Calcular Cosseno através do Ângulo
+            2) Calcular Cosseno através dos Lados do triângulo retângulo
+            3) Ver a representação no circulo Trigonometrico
+            4) Ver a representação da f(x) = cos(x)
+            5) Voltar ao Menu trigonomêtrico
+            Digite aqui:\s""", 5);
             switch (choice) {
                 case 1:
                     System.out.print("Digite o valor da ângulação(em graus): ");
@@ -84,11 +86,13 @@ public class Cosseno {
                     double period = 1;
                     while (choiceCosFunction != 3) {
                         DrawTrigonometricFunctions.drawFunctionCos(interval, period);
-                        choiceCosFunction = CalcTrigonometry.MenuFormat("\nDigite a opção desejada: \n"
-                                + "1) Alterar Intervalo da imagem da função Cosseno\n"
-                                + "2) Alterar período da função Cosseno\n"
-                                + "3) Voltar para opções de Cosseno\n"
-                                + "Digite aqui: ", 3);
+                        choiceCosFunction = CalcTrigonometry.MenuFormat("""
+                        
+                        Digite a opção desejada:
+                        1) Alterar Intervalo da imagem da função Cosseno
+                        2) Alterar período da função Cosseno
+                        3) Voltar para opções de Cosseno
+                        Digite aqui:\s""", 3);
                         switch (choiceCosFunction) {
                             case 1:
                                 System.out.print("\nDigite o valor do multiplicador do intervalo: ");

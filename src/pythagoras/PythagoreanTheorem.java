@@ -1,19 +1,17 @@
-import java.util.Scanner;
+package pythagoras;
+
+import utils.InputUtils;
 
 public class PythagoreanTheorem {
-    public static void calcHipotenusa() {
-        Scanner input = new Scanner(System.in);
+    public static void calcHipotenuse() {
+        System.out.print("Informe o valor do cateto A: ");
+        double catetoA = InputUtils.getDoubleInputValue();
         
-        System.out.println("Informe o valor do cateto A");
-        double catetoA = input.nextDouble();
-        
-        System.out.println("Informe o valor do cateto B");
-        double catetoB = input.nextDouble();
+        System.out.print("Informe o valor do cateto B: ");
+        double catetoB = InputUtils.getDoubleInputValue();
         
         double hipotenusa = Math.sqrt((catetoA * catetoA) + (catetoB * catetoB));
         
-        System.out.println("A hipotenusa é: " + hipotenusa);
-        
-        input.close();
+        System.out.println("O valor da hipotenusa é: " + hipotenusa);
     }
 }
