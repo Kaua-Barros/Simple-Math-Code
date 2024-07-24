@@ -6,19 +6,11 @@ public class Sen {
 
     public static double taylorSerieSen(double radians) {
         double sen = radians;
-        double factorial = 1;
-        double pow = radians;
+        TaylorSeriesParams params = new TaylorSeriesParams(radians, sen, radians);
 
         for (int n = 3; n <= CalcTrigonometry.taylorTerms; n += 2) {
-            factorial *= n * (n - 1);
-            pow *= radians * radians;
-
-            double sumNum = pow / factorial;
-            if ((n / 2) % 2 == 0) {
-                sen += sumNum;
-            } else {
-                sen -= sumNum;
-            }
+            sen = CalcTrigonometry.updateTaylorSeriesParams(params, n).partialResult;
+            ;
         }
         return sen;
     }

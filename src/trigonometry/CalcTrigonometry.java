@@ -30,6 +30,19 @@ public class CalcTrigonometry {
         return Fat;
     }
 
+    public static TaylorSeriesParams updateTaylorSeriesParams(TaylorSeriesParams taylorSeriesParams, int n) {
+        taylorSeriesParams.factorial *= n * (n - 1);
+        taylorSeriesParams.pow *= taylorSeriesParams.radians * taylorSeriesParams.radians;
+
+        double sumNum = taylorSeriesParams.pow / taylorSeriesParams.factorial;
+        if ((n / 2) % 2 == 0) {
+            taylorSeriesParams.partialResult += sumNum;
+        } else {
+            taylorSeriesParams.partialResult -= sumNum;
+        }
+        return taylorSeriesParams;
+    }
+
     public static void MenuTrigonometry() {
 
         label:

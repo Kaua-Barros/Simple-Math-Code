@@ -4,21 +4,12 @@ import utils.InputUtils;
 
 public class Cos {
 
-    public static double taylorSerieCos(double radianos) {
+    public static double taylorSerieCos(double radians) {
         double cos = 1;
-        double factorial = 1;
-        double pow = 1;
+        TaylorSeriesParams params = new TaylorSeriesParams(radians, cos, 1);
 
         for (int n = 2; n <= CalcTrigonometry.taylorTerms; n += 2) {
-            factorial *= n * (n - 1);
-            pow *= radianos * radianos;
-
-            double sumNum = pow / factorial;
-            if ((n / 2) % 2 == 0) {
-                cos += sumNum;
-            } else {
-                cos -= sumNum;
-            }
+            cos = CalcTrigonometry.updateTaylorSeriesParams(params, n).partialResult;
         }
         return cos;
     }
